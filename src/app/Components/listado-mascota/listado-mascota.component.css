@@ -1,0 +1,34 @@
+.title {
+    padding: 30px;
+    background-color: #666;
+    text-align: center;
+    color: white;
+}
+
+table {
+    width: 100%;
+  }
+  .container {
+    margin : 0 20%;
+  }
+
+  td,th{
+    width: 15%;
+  }
+  .delete{
+    cursor: pointer;
+    color : #e15639;
+
+  }
+  .edit{
+    cursor: pointer;
+    color : #1878b0;
+  } 
+  .search {
+    cursor: pointer;
+  }
+.btnagregar{
+  font-size: 10px;
+  line-height: 28px;
+
+}
