@@ -24,10 +24,10 @@ constructor(private fb : FormBuilder){
 agregarMascota(){
   //const nombre = this.form.get('nombre')?.value
   const mascota : Mascota = {
-  Nombre : this.form.value.nombre,
+  nombre : this.form.value.nombre,
   raza : this.form.value.raza,
   color : this.form.value.color,
-  Edad : this.form.value.edad,
+  edad : this.form.value.edad,
   peso : this.form.value.peso,
   }
 

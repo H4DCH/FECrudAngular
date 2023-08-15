@@ -4,11 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Mascota } from 'src/app/Interface/mascota'
+import { MascotaService } from 'src/app/Services/mascota.service';
 
-const listmascotas : Mascota[] = [
-  {Nombre : "Pepas",Edad: 2,raza:"Pitbull",color : "Negro",peso : 13  },
-  {Nombre : "Gallet",Edad: 3,raza:"Golden",color : "Dorado",peso : 13  }
-];
 @Component({
   selector: 'app-listado-mascota',
   templateUrl: './listado-mascota.component.html',
@@ -16,13 +13,16 @@ const listmascotas : Mascota[] = [
 })
 export class ListadoMascotaComponent implements AfterViewInit {
   displayedColumns: string[] = ['Nombre','Edad','raza','color','peso','acciones'];
-  dataSource = new MatTableDataSource<Mascota>(listmascotas); 
+  dataSource = new MatTableDataSource<Mascota>(); 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   
-  constructor(private _snackBar: MatSnackBar) {
+  constructor(private _snackBar: MatSnackBar, private _mascotaService : MascotaService) {
     
+  }
+  ngOnInit():void{
+    this.ObtenerMascotas();
   }
 
   ngAfterViewInit(){
@@ -36,6 +36,12 @@ export class ListadoMascotaComponent implements AfterViewInit {
       duration: 4000,
       horizontalPosition : 'center',
     }); 
+  }
+
+  ObtenerMascotas(){
+    this._mascotaService.getMascotas().subscribe(data =>  {
+      this.dataSource.data = data;
+    }, error => alert("Ocurrio un error al cargar"));
   }
 
 }

@@ -1,8 +1,8 @@
 export interface Mascota 
 {
     id? : Number,
-    Nombre : String,
-    Edad: Number,
+    nombre : String,
+    edad: Number,
     raza: string,
     color : string,
     peso : number
