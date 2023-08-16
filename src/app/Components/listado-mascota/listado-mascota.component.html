@@ -17,7 +17,7 @@
             <th mat-header-cell *matHeaderCellDef> Raza </th>
             <td mat-cell *matCellDef="let element"> {{element.raza}} </td>
           </ng-container>
-          <ng-container matColumnDef="color">
+          <ng-container matColumnDef="color"> 
             <th mat-header-cell *matHeaderCellDef> Color </th>
             <td mat-cell *matCellDef="let element"> {{element.color}} </td>
           </ng-container>
@@ -30,9 +30,9 @@
                 <button routerLink="/AgregarEditarMascota" class="btnagregar" mat-raised-button color="primary">Agregar</button>
             </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon routerLink="/VerMascota/2" matTooltip="Ver Registro" class="search" fontIcon="search"></mat-icon>
-                <mat-icon routerLink="/EditarMascota/2" matTooltip="Editar Registro" class="edit" fontIcon="edit"></mat-icon>
-                <mat-icon (click)="EliminarMascota()" matTooltip="Eliminar Registro" class="delete" fontIcon="delete"></mat-icon>
+                <mat-icon routerLink="/VerMascota/{{ element.id }}" matTooltip="Ver Registro" class="search" fontIcon="search"></mat-icon>
+                <mat-icon routerLink="/EditarMascota/{{ element.id }}" matTooltip="Editar Registro" class="edit" fontIcon="edit"></mat-icon>
+                <mat-icon (click)="EliminarMascota(element.id)" matTooltip="Eliminar Registro" class="delete" fontIcon="delete"></mat-icon>
             </td>
           </ng-container>
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

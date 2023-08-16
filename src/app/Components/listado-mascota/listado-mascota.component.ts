@@ -31,10 +31,10 @@ export class ListadoMascotaComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  EliminarMascota(){
-    this._snackBar.open('El registro se elimino correctamente','',{
-      duration: 4000,
-      horizontalPosition : 'center',
+  EliminarMascota(id : number){
+    this._mascotaService.deleteMascota(id).subscribe(data =>{
+      this.mensajeExito();
+      this.ObtenerMascotas();
     }); 
   }
 
@@ -43,6 +43,14 @@ export class ListadoMascotaComponent implements AfterViewInit {
       this.dataSource.data = data;
     }, error => alert("Ocurrio un error al cargar"));
   }
+
+  mensajeExito(){
+    this._snackBar.open('El registro se elimino correctamente','',{
+      duration: 4000,
+      horizontalPosition : 'center',
+    });
+  }
+
 
 }
  

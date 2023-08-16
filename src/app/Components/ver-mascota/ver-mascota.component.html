@@ -1,14 +1,15 @@
 <div class="title">
     <h1>Ver Mascota</h1>
 </div>
-<div class="container">
+<!--<div *ngIf="mascota$ | async as mascota" class="container">-->
+    <div *ngIf="mascota != null" class="container">
     <mat-card class="card">
-        <mat-card-title>Ejemplo</mat-card-title>
+        <mat-card-title> {{ mascota.nombre }}</mat-card-title>
         <mat-card-content>
-            <p><strong>Raza:</strong>Ejemplo</p>
-            <p><strong>Color:</strong>Ejemplo</p>
-            <p><strong>Peso:</strong>Ejemplo</p>
-            <p><strong>Edad:</strong>Ejemplo</p>
+            <p><strong>Raza:</strong>{{ mascota.raza }}</p>
+            <p><strong>Color:</strong>{{ mascota.color }}</p>
+            <p><strong>Peso:</strong>{{ mascota.peso }}</p>
+            <p><strong>Edad:</strong>{{ mascota.edad }}</p>
         </mat-card-content>
         <mat-card-actions >
             <button routerLink="ListadoMascota" mat-raised-button>Volver</button>           
